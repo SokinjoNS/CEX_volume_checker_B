@@ -1,4 +1,3 @@
-# binance_volume_alerts.py
 import requests
 import json
 import pandas as pd
