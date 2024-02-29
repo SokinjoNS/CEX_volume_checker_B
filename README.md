@@ -7,4 +7,4 @@ Create a credentials_b.json file in the project directory and add your Binance A
 
 Run the script:
 
-The script will start monitoring trading pairs on Binance. It will monitor volume data and calculate the mean volume over the past 24 hours. It works in tandem with telegram_alerts.
+The script will start monitoring trading pairs on Binance. It will monitor volume data and calculate the mean volume over the past 24 hours. It works in tandem with `telegram_alerts` and `formatting`.
