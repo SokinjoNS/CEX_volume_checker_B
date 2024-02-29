@@ -6,6 +6,7 @@ import datetime
 import schedule
 import time
 from telegram_alerts import send_telegram_message  # Import the Telegram alert function
+from formatting_btk import format_number, generate_chart_url
 
 def generate_binance_chart_url(symbol, interval="1h"):
     base_url = "https://www.tradingview.com/chart/"
@@ -46,47 +47,46 @@ def run_script():
                 curr_volume = df['volume'].iloc[-2]
                 past_24_hours = df.iloc[:-2]['volume'].astype(float)
                 prev_volume_mean = past_24_hours.mean()
-                #prev_volume_mean = df.iloc[:-2]['volume'].astype(float).mean()
                 
-                # here you defined the percentages (%) of increase that you want to be notified on, and their different levels
+                # here you define the percentages (%) of increase that you want to be notified on, and their different levels
                 if curr_volume > prev_volume_mean * 15:
                     # send alert message for 1500% +
                     message = f"*Binance*\n"
                     message += f"*{symbol}* volume spike of over *1500%* in the last 1h!!!!!"
-                    message += f"\n\nCurrent volume: *{curr_volume:.2f}*"
+                    message += f"\n\nCurrent volume: *{format_number(curr_volume)}*"
                     message += f"\nVolume MA in past 24h: *{prev_volume_mean:.2f}*"
                     message += "\n\n🚀🚀🚀🚀🚀🔴🚀🔴🚀🔴🚀🚀🚀🚀🚀"
-                    message += f"\n\n[Open Binance Chart]({generate_binance_chart_url(symbol, interval)})"
+                    message += f"\n\n[Open Binance Chart]({generate_chart_url(symbol, 'BINANCE', interval)})"
                     send_telegram_message(message)  # Send the message using the Telegram script
                         
                 elif curr_volume > prev_volume_mean * 10:
                     # send alert message for 1000% +
                     message = f"*Binance*\n"
                     message += f"*{symbol}* volume spike of over *1000%* in the last 1h!!!!!"
-                    message += f"\n\nCurrent volume: *{curr_volume:.2f}*"
+                    message += f"\n\nCurrent volume: *{format_number(curr_volume)}*"
                     message += f"\nVolume MA in past 24h: *{prev_volume_mean:.2f}*"
                     message += "\n\n🚀🚀🚀🔴🔴🔴🚀🚀🚀"
-                    message += f"\n\n[Open Binance Chart]({generate_binance_chart_url(symbol, interval)})"
+                    message += f"\n\n[Open Binance Chart]({generate_chart_url(symbol, 'BINANCE', interval)})"
                     send_telegram_message(message)  # Send the message using the Telegram script
                                              
                 elif curr_volume > prev_volume_mean * 7:
                     # send alert message for 700%
                     message = f"*Binance*\n"
                     message += f"*{symbol}* volume spike of over *700%* in the last 1h!!!!!"
-                    message += f"\n\nCurrent volume: *{curr_volume:.2f}*"
+                    message += f"\n\nCurrent volume: *{format_number(curr_volume)}*"
                     message += f"\nVolume MA in past 24h: *{prev_volume_mean:.2f}*"
                     message += "\n\n🔴🚨🔴"
-                    message += f"\n\n[Open Binance Chart]({generate_binance_chart_url(symbol, interval)})"
+                    message += f"\n\n[Open Binance Chart]({generate_chart_url(symbol, 'BINANCE', interval)})"
                     send_telegram_message(message)  # Send the message using the Telegram script
                     
                 elif curr_volume > prev_volume_mean * 5:
                     # send alert message for 500% +
                     message = f"*Binance*\n"
                     message += f"*{symbol}* volume spike of over *500%* in the last 1h!!!!!"
-                    message += f"\n\nCurrent volume: *{curr_volume:.2f}*"
+                    message += f"\n\nCurrent volume: *{format_number(curr_volume)}*"
                     message += f"\nVolume MA in past 24h: *{prev_volume_mean:.2f}*"
                     message += "\n\n🚨🚨🚨"
-                    message += f"\n\n[Open Binance Chart]({generate_binance_chart_url(symbol, interval)})"
+                    message += f"\n\n[Open Binance Chart]({generate_chart_url(symbol, 'BINANCE', interval)})"
                     send_telegram_message(message)  # Send the message using the Telegram script
                     
                 
@@ -101,4 +101,4 @@ for hour in range(24):
 # Run the scheduled tasks indefinitely
 while True:
     schedule.run_pending()
-    time.sleep(1) 
+    time.sleep(1)
