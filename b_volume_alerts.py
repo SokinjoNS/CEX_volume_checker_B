@@ -68,12 +68,11 @@ def run_script():
         except ValueError as e:
             print(f"Error processing data for {symbol}: {e}")
 
-run_script()
 # Schedule the script to run at the specified times
-#for hour in range(24):
-    #schedule.every().day.at("{:02d}:01".format(hour)).do(run_script)
+for hour in range(24):
+    schedule.every().day.at("{:02d}:01".format(hour)).do(run_script)
 
 # Run the scheduled tasks indefinitely
-#while True:
-    #schedule.run_pending()
-    #time.sleep(1)
+while True:
+    schedule.run_pending()
+    time.sleep(1)
