@@ -1,8 +1,8 @@
-# Binance Volume Monitor
+# Binance Volume Tracker
 
 __Description:__
 
-The Binance Volume Checker is a Python script designed to monitor trading pairs on the Binance cryptocurrency exchange. It retrieves historical candlestick data for each trading pair, calculates the mean volume over the past 24 hours, and sends Telegram alerts if the current volume exceeds certain thresholds relative to the mean volume. This tool can help users identify significant volume spikes in cryptocurrency trading pairs.
+The Binance Volume Tracker is a Python script designed to monitor trading pairs on the Binance cryptocurrency exchange. It retrieves historical candlestick data for each trading pair, calculates the mean volume over the past 24 hours, and sends Telegram alerts if the current volume exceeds certain thresholds relative to the mean volume. This tool can help users identify significant volume spikes in cryptocurrency trading pairs.
 
 ## Features:
 
