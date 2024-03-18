@@ -73,4 +73,3 @@ Feedback and contributions are welcome!
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
-This project and the direct_address_tg_listener.py module are licensed under the MIT License. For more details, see the LICENSE file.
