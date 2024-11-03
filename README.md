@@ -60,7 +60,7 @@ The script will start monitoring trading pairs on Binance. It will retrieve hist
 
 The alerts will include information about the trading pair, current volume, mean volume over the past 24 hours, and a link to the TradingView chart for the trading pair.
 
-## Contributing
+## Contributions
 
 Contributions are welcome! If you have ideas for new features, improvements, or bug fixes, feel free to fork the repository, make your changes, and submit a pull request. For major changes, please open an issue first to discuss what you would like to change.
 
